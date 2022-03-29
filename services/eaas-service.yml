@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eaas-k
+  namespace: eaas-k
+  annotations:
+    app.kubernetes.io/name: eaas-service
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: eaas-service
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+spec:
+  ports:
+   - port: 443
+     targetPort: 443
+     nodePort: 30345
+     portocol: TCP
+   type: NodePort
+   selector:
+     app.kubernetes.io/name: eaas-deployment
+...
