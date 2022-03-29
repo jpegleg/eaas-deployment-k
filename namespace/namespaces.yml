@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: eaas-k
+  labels:
+    name: eaas-k
+  annotations:
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: eaas-namespace
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+...
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: danger
+  labels:
+    name: danger
+  annotations:
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: danger-namespace
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+...
