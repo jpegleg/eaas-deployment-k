@@ -6,6 +6,7 @@ metadata:
   labels:
     name: eaas-k
   annotations:
+    app.kubernetes.io/name: eaas-k-ns
     app.kubernetes.io/instance: eaas-template-k
     app.kubernetes.io/version: 0.0.1
     app.kubernetes.io/component: eaas-namespace
@@ -20,6 +21,7 @@ metadata:
   labels:
     name: danger
   annotations:
+    app.kubernetes.io/name: danger-k-ns
     app.kubernetes.io/instance: eaas-template-k
     app.kubernetes.io/version: 0.0.1
     app.kubernetes.io/component: danger-namespace
