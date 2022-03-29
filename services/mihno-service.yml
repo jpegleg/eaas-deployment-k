@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mihno-k
+  namespace: eaas-k
+  annotations:
+    app.kubernetes.io/name: mihno-service
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: mihno-service
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+spec:
+  ports:
+   - port: 3975
+     targetPort: 3975
+     nodePort: 30346
+     portocol: TCP
+   type: NodePort
+   selector:
+     app.kubernetes.io/name: mihno-deployment
+...
