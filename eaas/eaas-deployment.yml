@@ -57,3 +57,25 @@ spec:
         configMap:
           name: eaas-k
 ...
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: eaas-k
+  namespace: eaas-k
+  annotations:
+    app.kubernetes.io/name: eaas-k
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: eaas-k
+  minreplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPrecentage: 50
+...
