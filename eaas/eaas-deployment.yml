@@ -19,7 +19,7 @@ data:
     <h1>TEMPLATE</h1>
     </html>
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eaas-k
@@ -42,18 +42,18 @@ spec:
       labels:
         app: eaas-k
         app.kubernetes.io/name: eaas-k
-      spec:
-        containers:
+    spec:
+      containers:
+      - name: eaas-k
+        image: "eaas:k"
+        ports:
         - name: eaas-k
-          image: "eaas:k"
-          ports:
-          - name: eaas-k
-            containerPort: 443
-          volumeMounts:
-              - name: eaas-k
-                mountPath: /usr/share/nginx/html
-        volumes:
-        - name: eaas-k
-          configMap:
-            name: eaas-k
+          containerPort: 443
+        volumeMounts:
+            - name: eaas-k
+              mountPath: /usr/share/nginx/html
+      volumes:
+      - name: eaas-k
+        configMap:
+          name: eaas-k
 ...
