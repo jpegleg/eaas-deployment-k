@@ -1,4 +1,24 @@
 ---
+apiVersions: v1
+kind: ConfigMap
+metadata:
+  name: eaas-k
+  namespace: eaas-k
+  annotations:
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg  
+data:
+  index.html: |
+    <html>
+    <head>
+    </head>
+    <body style="background-color:black; color:green; padding: 1em;">
+    <h1>Encryption Service</h1>
+    </html>
+---
 apiVersion: v1
 kind: Deployment
 metadata:
@@ -9,7 +29,7 @@ metadata:
   annotations:
     app.kubernetes.io/instance: eaas-template-k
     app.kubernetes.io/version: 0.0.1
-    app.kubernetes.io/component: eaas-service
+    app.kubernetes.io/component: frontend
     app.kubernetes.io/managed-by: manifest
     app.kubernetes.io/created-by: jpegleg
 spec:
@@ -29,4 +49,11 @@ spec:
           ports:
           - name: eaas-k
             containerPort: 443
+          volumeMounts:
+              - name: eaas-k
+                mountPath: /usr/share/nginx/html
+        volumes:
+        - name: eaas-k
+          configMap:
+            name: eaas-k
 ...
