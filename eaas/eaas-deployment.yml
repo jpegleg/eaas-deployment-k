@@ -15,8 +15,8 @@ data:
     <html>
     <head>
     </head>
-    <body style="background-color:black; color:green; padding: 1em;">
-    <h1>Encryption Service</h1>
+    <body style="background-color:black; color:green; padding:1em;">
+    <h1>TEMPLATE</h1>
     </html>
 ---
 apiVersion: v1
