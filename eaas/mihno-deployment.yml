@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: mihno-k
+  namespace: eaas-k
+  labels:
+    app.kubernetes.io/name: mihno-k
+  annotations:
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: honeypot
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mihno-k
+  template:
+    metadata:
+      labels:
+        app: mihno-k
+        app.kubernetes.io/name: mihno-k
+      spec:
+        containers:
+        - name: mihno-k
+          image: "mihno:latest"
+          ports:
+          - name: mihno-k
+            containerPort: 3975
+...
