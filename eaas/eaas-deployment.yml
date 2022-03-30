@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: eaas-k
+  namespace: eaas-k
+  labels:
+    app.kubernetes.io/name: eaas-k
+  annotations:
+    app.kubernetes.io/instance: eaas-template-k
+    app.kubernetes.io/version: 0.0.1
+    app.kubernetes.io/component: eaas-service
+    app.kubernetes.io/managed-by: manifest
+    app.kubernetes.io/created-by: jpegleg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eaas-k
+  template:
+    metadata:
+      labels:
+        app: eaas-k
+        app.kubernetes.io/name: eaas-k
+      spec:
+        containers:
+        - name: eaas-k
+          image: "eaas:k"
+          ports:
+          - name: eaas-k
+            containerPort: 443
+...
