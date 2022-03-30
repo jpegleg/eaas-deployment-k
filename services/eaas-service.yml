@@ -13,11 +13,11 @@ metadata:
     app.kubernetes.io/created-by: jpegleg
 spec:
   ports:
-   - port: 443
-     targetPort: 443
-     nodePort: 30345
-     portocol: TCP
-   type: NodePort
-   selector:
-     app.kubernetes.io/name: eaas-deployment
+  - port: 443
+    targetPort: 443
+    nodePort: 30345
+    protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: eaas-deployment
 ...
