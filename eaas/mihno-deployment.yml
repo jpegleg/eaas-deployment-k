@@ -22,11 +22,11 @@ spec:
       labels:
         app: mihno-k
         app.kubernetes.io/name: mihno-k
-      spec:
-        containers:
+    spec:
+      containers:
+      - name: mihno-k
+        image: "mihno:latest"
+        ports:
         - name: mihno-k
-          image: "mihno:latest"
-          ports:
-          - name: mihno-k
-            containerPort: 3975
+          containerPort: 3975
 ...
