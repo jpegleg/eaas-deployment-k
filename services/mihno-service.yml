@@ -13,11 +13,11 @@ metadata:
     app.kubernetes.io/created-by: jpegleg
 spec:
   ports:
-   - port: 3975
-     targetPort: 3975
-     nodePort: 30346
-     portocol: TCP
-   type: NodePort
-   selector:
-     app.kubernetes.io/name: mihno-deployment
+  - port: 3975
+    targetPort: 3975
+    nodePort: 30346
+    portocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: mihno-deployment
 ...
